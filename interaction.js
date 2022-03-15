@@ -8,6 +8,8 @@ const topRight = document.querySelector('.top-right');
 const bottomRight = document.querySelector('.bottom-right');
 const bottomLeft = document.querySelector('.bottom-left');
 const grid = Array.from(document.querySelectorAll('.grid'))
+// Create control variables
+let isGameOn = false;
 
 // Start the game
 function startGame() {
@@ -18,6 +20,8 @@ function startGame() {
     element.classList.add('white');
     element.style.cursor = "pointer";
   })
+  isGameOn = true;
+  // toggleColor();
 };
 startButton.addEventListener('click', startGame);
 
@@ -29,8 +33,8 @@ function restartGame() {
   grid.forEach(element => {
     element.classList.remove('white');
   })
+  isGameOn = false;
 }
-
 restartButton.addEventListener('click', restartGame);
 
 // Generate random numbers
@@ -38,3 +42,18 @@ function randomInt() {
   randomNumber = Math.floor(Math.random() * grid.length)
   return randomNumber;
 };
+
+// Creating a sleep function
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
+//Generate random numbers and color the grid
+const toggleColor = async () => {
+  for (let i = 0; i < 5; i++) {
+    await sleep(2);
+    randIndex = randomInt();
+    grid[randIndex].classList.remove('white');
+    await sleep(2);
+    grid[randIndex].classList.add('white');
+  }
+}
+// Use set interval
