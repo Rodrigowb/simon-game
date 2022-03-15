@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Simon Game</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Simon Game</h1>
+    <h2>You must follow the exact sequence to mark points!</h2>
+  </header>
+  <main>
+    <div class="round-counter">
+      Round counter: <span class="score">0</span>
+    </div>
+    <div class="end-info">
+      <div>Game over!</div>
+      <div>
+        Rounds passed: <span class="final-score"></span>
+      </div>
+    </div>
+    <button name="button" class="start">Start!</button>
+    <div class="grid-container">
+      <div class="grid top-left"></div>
+      <div class="grid top-right"></div>
+      <div class="grid bottom-right"></div>
+      <div class="grid bottom-left"></div>
+    </div>
+    <button name="button" class="restart">Restart</button>
+  </main>
+  <script src="interaction.js"></script>
+</body>
+
+</html>
