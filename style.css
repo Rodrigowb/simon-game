@@ -18,10 +18,33 @@ h1{
 h2{
   font-size: 2em;
 }
-/* Styling the main */
+/* Styling the main informations */
 main{
   text-align: center;
 }
 .info{
   font-size: 2.5em;;
 }
+/* Setting the visibility of the infos */
+.round-counter{
+  display: block;
+}
+.end-info{
+  display: none;
+}
+/* Styling the main buttons  */
+button{
+  background-color: #59EF8C;
+  border: 2px solid #8D6708;
+  padding: 2px 6px 2px 6px;
+  font-size: 2em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* Setting the visibility of the buttons */
+.start{
+  display: inline;
+}
+.restart{
+  display: none;
+}
+
