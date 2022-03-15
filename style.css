@@ -78,5 +78,10 @@ button{
 .bottom-left{
   background: #BC9300;
 }
+/* Create a tag to toggle all the grids color */
+.white{
+  background: white;
+}
+
 
 
