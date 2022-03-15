@@ -2,5 +2,26 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: Saira Condensed;
+  font-family: 'Saira Condensed', sans-serif;
+  background-color: #F6EDED;
+  color: #8D6708;
+}
+/* Styling the header */
+header{
+  text-align: center;
+  margin: 1%;
+}
+h1{
+  font-size: 4em;
+  font-weight: 900;
+}
+h2{
+  font-size: 2em;
+}
+/* Styling the main */
+main{
+  text-align: center;
+}
+.info{
+  font-size: 2.5em;;
 }
