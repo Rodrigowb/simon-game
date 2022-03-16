@@ -8,6 +8,7 @@ const topRight = document.querySelector('.top-right');
 const bottomRight = document.querySelector('.bottom-right');
 const bottomLeft = document.querySelector('.bottom-left');
 const grid = Array.from(document.querySelectorAll('.grid'))
+
 // Create control variables
 let isGameOn = false;
 
@@ -17,11 +18,11 @@ function startGame() {
   counter.style.display = "inline";
   restartButton.style.display = "inline";
   grid.forEach(element => {
-    element.classList.add('white');
     element.style.cursor = "pointer";
   })
   isGameOn = true;
-  // toggleColor();
+  console.log(isGameOn);
+  main();
 };
 startButton.addEventListener('click', startGame);
 
@@ -37,23 +38,25 @@ function restartGame() {
 }
 restartButton.addEventListener('click', restartGame);
 
-// Generate random numbers
-function randomInt() {
-  randomNumber = Math.floor(Math.random() * grid.length)
-  return randomNumber;
+// Use promisses to wrap timeout
+const flash = panel => {
+  return new Promise((resolve, reject) => {
+    panel.className += ' white';
+    setTimeout(() => {
+      panel.className = panel.className.replace(
+        ' white',
+        ''
+      );
+      resolve();
+    }, 500)
+  });
 };
 
-// Creating a sleep function
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
-
-//Generate random numbers and color the grid
-const toggleColor = async () => {
-  for (let i = 0; i < 5; i++) {
-    await sleep(2);
-    randIndex = randomInt();
-    grid[randIndex].classList.remove('white');
-    await sleep(2);
-    grid[randIndex].classList.add('white');
+// Loop throught the grids
+const main = async () => {
+  while (isGameOn) {
+    for (const panel of grid) {
+      await flash(panel);
+    }
   }
 }
-// Use set interval
