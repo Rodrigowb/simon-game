@@ -11,7 +11,7 @@ const grid = Array.from(document.querySelectorAll('.grid'))
 
 // Create control variables
 let isGameOn = false;
-let canClick = false;
+let canClick = true;
 // Start a sequence with a initial panel (will change)
 const sequence = [randomPanel()];
 // Keep track of what the user is guessing
@@ -65,42 +65,39 @@ const flash = panel => {
   });
 };
 
-// Check if you click on the right pannel
-function panelCheck(panelClicked) {
-  if (canClick) {
-    const expectedPanel = guessSequence.shift();
-    if (expectedPanel === panelClicked) {
-      // Check if the user clicked right
-      if (guessSequence.length === 0) {
-        // Start new round
-        sequence.push(randomPanel());
-        guessSequence = [...sequence];
-        flashingStart();
-      }
-    } else {
-      // End game
-      alert('Game over');
-    }
-  }
-}
-
 // Start toggling the grid colors
 const flashingStart = async () => {
-  canClick = false;
-  for (const panel of sequence) {
-    await flash(panel);
+  for (let i = 0; i < 5; i++) {
+    await flash(randomPanel());
   }
-  canClick = true;
 }
 
-flashingStart();
-
+// // Check if you click on the right pannel
+// function panelCheck(panelClicked) {
+//   if (canClick) {
+//     const expectedPanel = guessSequence.shift();
+//     if (expectedPanel === panelClicked) {
+//       // Check if the user clicked right
+//       if (guessSequence.length === 0) {
+//         // Start new round
+//         sequence.push(randomPanel());
+//         guessSequence = [...sequence];
+//         flashingStart();
+//       }
+//     } else {
+//       // End game
+//       alert('Game over');
+//     }
+//   }
+// }
 
 // Event handler when click in the grid
 function clickPanel(event) {
-  return event.target;
+  if (isGameOn && canClick) {
+    console.log(event.target);
+    return event.target;
+  }
 }
-
 // Event listener
 grid.forEach(element => {
   element.addEventListener('click', clickPanel);
