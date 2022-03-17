@@ -95,12 +95,12 @@ button:hover {
 }
 
 @media screen and (max-width: 485px){
-  h1{
+  /* h1{
     font-size: 4em;
-  }
+  } */
   .grid{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin-top: 20px;
   }
   button{
