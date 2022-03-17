@@ -45,7 +45,7 @@ function restartGame() {
   counter.style.display = "none";
   restartButton.style.display = "none";
   grid.forEach(element => {
-    element.classList.remove('white');
+    element.style.cursor = "default";
   })
   isGameOn = false;
   canClick = false;
@@ -54,7 +54,7 @@ function restartGame() {
   sequenceToGuess = [...sequence];
   // Show the result for the user
   endInfo.style.display = "inline";
-  finalScore.innerText = currentScore;
+  finalScore.innerText = (currentScore - 1);
   // Reseting the score
   currentScore = 1;
 }
@@ -79,7 +79,7 @@ const flash = panel => {
       setTimeout(() => {
         resolve();
       }, 250);
-    }, 1000)
+    }, 500)
   });
 };
 
@@ -120,8 +120,5 @@ const panelClicked = panelClicked => {
 
 // Event listener
 grid.forEach(element => {
-  element.addEventListener('click', panelClicked);;
+  element.addEventListener('click', panelClicked);
 })
-
-// TODO: message at the end of the game
-// TODO: change the style when the panel is clicked
