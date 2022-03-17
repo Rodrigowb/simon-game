@@ -1,8 +1,8 @@
 # Project informations
-Name: Simon Game
-Start date: 03/14/2022
-Version: 001
-Author's name: Rodrigo Wanderley
+Name: Simon Game <br />
+Start date: 03/14/2022 <br />
+Version: 001 <br />
+Author's name: Rodrigo Wanderley__
 E-mail: boaventurarodrigo@yahoo.com.br
 Git hub profile: https://github.com/Rodrigowb
 Linkedin profile: https://www.linkedin.com/in/rodrigowanderleyboaventura
