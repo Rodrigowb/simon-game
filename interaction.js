@@ -117,7 +117,6 @@ const panelClicked = panelClicked => {
     restartGame();
   }
 }
-
 // Event listener
 grid.forEach(element => {
   element.addEventListener('click', panelClicked);
