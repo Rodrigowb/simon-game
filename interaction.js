@@ -11,11 +11,11 @@ const grid = Array.from(document.querySelectorAll('.grid'))
 
 // Create control variables
 let isGameOn = false;
-let canClick = true;
+let canClick = false;
 // Start a sequence with a initial panel (will change)
 const sequence = [randomPanel()];
 // Keep track of what the user is guessing
-let guessSequence = [...sequence];
+let sequenceToGuess = [...sequence];
 
 // Start the game
 function startGame() {
@@ -39,6 +39,7 @@ function restartGame() {
     element.classList.remove('white');
   })
   isGameOn = false;
+  canClick = false;
 }
 restartButton.addEventListener('click', restartGame);
 
@@ -67,38 +68,31 @@ const flash = panel => {
 
 // Start toggling the grid colors
 const flashingStart = async () => {
-  for (let i = 0; i < 5; i++) {
-    await flash(randomPanel());
+  canClick = false;
+  for (const panel of sequence) {
+    await flash(panel);
+  }
+  canClick = true;
+}
+
+// Check if you click on the right pannel
+const panelClicked = panelClicked => {
+  if (!canClick) return;
+  const expectedPanel = sequenceToGuess.shift();
+  if (expectedPanel === panelClicked.target) {
+    if (sequenceToGuess.length === 0) {
+      // start new round
+      sequence.push(randomPanel());
+      sequenceToGuess = [...sequence];
+      flashingStart();
+    }
+  } else {
+    // end game
+    alert('game over');
   }
 }
 
-// // Check if you click on the right pannel
-// function panelCheck(panelClicked) {
-//   if (canClick) {
-//     const expectedPanel = guessSequence.shift();
-//     if (expectedPanel === panelClicked) {
-//       // Check if the user clicked right
-//       if (guessSequence.length === 0) {
-//         // Start new round
-//         sequence.push(randomPanel());
-//         guessSequence = [...sequence];
-//         flashingStart();
-//       }
-//     } else {
-//       // End game
-//       alert('Game over');
-//     }
-//   }
-// }
-
-// Event handler when click in the grid
-function clickPanel(event) {
-  if (isGameOn && canClick) {
-    console.log(event.target);
-    return event.target;
-  }
-}
 // Event listener
 grid.forEach(element => {
-  element.addEventListener('click', clickPanel);
+  element.addEventListener('click', panelClicked);;
 })
