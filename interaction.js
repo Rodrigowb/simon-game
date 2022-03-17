@@ -1,4 +1,3 @@
-console.log('Im live')
 // Acess DOM nodes
 const startButton = document.querySelector('.start');
 const counter = document.querySelector('.round-counter');
@@ -103,12 +102,10 @@ const panelClicked = panelClicked => {
     if (sequenceToGuess.length === 0) {
       // Incrementing the score
       currentScore += 1;
-      console.log(currentScore);
       // Replacing the score in the ui
       score.innerText = currentScore;
       // start new round
       sequence.push(randomPanel());
-      // console.log(sequence);
       sequenceToGuess = [...sequence];
       flashingStart();
     }
