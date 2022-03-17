@@ -3,7 +3,7 @@ Name: Simon Game <br />
 Start date: 03/14/2022 <br />
 Version: 001 <br />
 Author's name: Rodrigo Wanderley <br />
-E-mail: <boaventurarodrigo@yahoo.com.br>
+E-mail: <boaventurarodrigo@yahoo.com.br> <br />
 Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
 # Files description
