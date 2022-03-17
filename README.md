@@ -5,7 +5,7 @@ Version: 001
 Author's name: Rodrigo Wanderley
 E-mail: boaventurarodrigo@yahoo.com.br
 Git hub profile: https://github.com/Rodrigowb
-Linkedin profile: 
+Linkedin profile: https://www.linkedin.com/in/rodrigowanderleyboaventura
 # Files description
 index.html: provides the front-end structure to the project, with text, buttons and div elements that represent the cikcable boxes.
 style.css: provides the front-end style of the project, including variations for mobile use.
