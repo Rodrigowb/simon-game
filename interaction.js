@@ -13,7 +13,7 @@ const grid = Array.from(document.querySelectorAll('.grid'))
 let isGameOn = false;
 let canClick = false;
 // Start a sequence with a initial panel (will change)
-const sequence = [randomPanel()];
+let sequence = [randomPanel()];
 // Keep track of what the user is guessing
 let sequenceToGuess = [...sequence];
 
@@ -40,6 +40,10 @@ function restartGame() {
   })
   isGameOn = false;
   canClick = false;
+  // Resetting the sequence
+  sequence = [randomPanel()];
+  sequenceToGuess = [...sequence];
+
 }
 restartButton.addEventListener('click', restartGame);
 
@@ -77,12 +81,13 @@ const flashingStart = async () => {
 
 // Check if you click on the right pannel
 const panelClicked = panelClicked => {
-  if (!canClick) return;
+  if (!canClick || !isGameOn) return;
   const expectedPanel = sequenceToGuess.shift();
   if (expectedPanel === panelClicked.target) {
     if (sequenceToGuess.length === 0) {
       // start new round
       sequence.push(randomPanel());
+      console.log(sequence);
       sequenceToGuess = [...sequence];
       flashingStart();
     }
@@ -96,3 +101,6 @@ const panelClicked = panelClicked => {
 grid.forEach(element => {
   element.addEventListener('click', panelClicked);;
 })
+
+
+// When restart, is not working
