@@ -9,13 +9,15 @@ const bottomRight = document.querySelector('.bottom-right');
 const bottomLeft = document.querySelector('.bottom-left');
 const grid = Array.from(document.querySelectorAll('.grid'))
 const score = document.querySelector('.score')
+const endInfo = document.querySelector('.end-info');
+const finalScore = document.querySelector(".final-score")
 
 // Create control variables
 let isGameOn = false;
 let canClick = false;
 // Start a sequence with a initial panel (will change)
 let sequence = [randomPanel()];
-// Keep track of what the user is guessing
+// Keep track of what the user is guessing (will not change)
 let sequenceToGuess = [...sequence];
 // Keep track of the game score
 let currentScore = 1;
@@ -25,9 +27,13 @@ function startGame() {
   startButton.style.display = "none";
   counter.style.display = "inline";
   restartButton.style.display = "inline";
+  endInfo.style.display = "none";
   grid.forEach(element => {
     element.style.cursor = "pointer";
   })
+  // Reseting the score
+  score.innerText = 1;
+  // Start the game
   isGameOn = true;
   flashingStart();
 };
@@ -46,9 +52,11 @@ function restartGame() {
   // Resetting the sequence
   sequence = [randomPanel()];
   sequenceToGuess = [...sequence];
+  // Show the result for the user
+  endInfo.style.display = "inline";
+  finalScore.innerText = currentScore;
   // Reseting the score
   currentScore = 1;
-  score.innerText = 1;
 }
 restartButton.addEventListener('click', restartGame);
 
@@ -79,6 +87,7 @@ const flash = panel => {
 const flashingStart = async () => {
   canClick = false;
   for (const panel of sequence) {
+    // Stop flashing if the user click restart
     if (isGameOn) {
       await flash(panel);
     }
@@ -114,5 +123,5 @@ grid.forEach(element => {
   element.addEventListener('click', panelClicked);;
 })
 
-// TODO: when restart in the middle of the game, still toggling
 // TODO: message at the end of the game
+// TODO: change the style when the panel is clicked
