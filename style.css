@@ -94,5 +94,21 @@ button:hover {
   background: white;
 }
 
+@media (min-width: 495px){
+  h1{
+    font-size: 6em;
+  }
+  .grid{
+    width: 300px;
+    height: 500px;
+    margin-top: 40px;
+  }
+  button{
+    font-size: 3em;
+  }
+  .info{
+    font-size: 3.5em;
+  }
+}
 
 
