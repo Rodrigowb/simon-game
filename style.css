@@ -94,10 +94,10 @@ button:hover {
   background: white;
 }
 
-@media screen and (max-width: 485px){
-  /* h1{
+/* @media screen and (max-width: 485px){
+  h1{
     font-size: 4em;
-  } */
+  }
   .grid{
     width: 100px;
     height: 100px;
@@ -106,6 +106,6 @@ button:hover {
   button{
     font-size: 2em;
   }
-}
+} */
 
 
