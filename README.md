@@ -6,6 +6,11 @@ Author's name: Rodrigo Wanderley <br />
 E-mail: <boaventurarodrigo@yahoo.com.br> <br />
 Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
+# About the game
+This project is a Simon game, which the user has to repeat the previous computer clicks to get to the next round. It is a memory game, 
+that the sequence increments in one panel each round. The user loses is get the wrong sequence.
+# Deployment:
+<https://rodrigowb.github.io/simon-game/>
 # Files description
 ## index.html
 Provides the front-end structure to the project, with text, buttons and div elements that represent the cikcable boxes. <br />
@@ -20,6 +25,3 @@ Provides the backend for the project, using DOM manipulation and async functions
 4. CSS
 5. JS
 6. Github pages
-# About the game
-This project is a Simon game, which the user has to repeat the previous computer clicks to get to the next round. It is a memory game, 
-that the sequence increments in one panel each round. The user loses is get the wrong sequence.
