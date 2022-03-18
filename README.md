@@ -8,7 +8,7 @@ Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
 # About the game
 This project is a Simon game, which the user has to repeat the previous computer clicks to get to the next round. It is a memory game, 
-that the sequence increments in one panel each round. The user loses is get the wrong sequence.
+that the sequence increments in one panel each round. The user loses is gets the wrong sequence.
 # Deployment
 <https://rodrigowb.github.io/simon-game/>
 # Files description
